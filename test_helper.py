@@ -27,3 +27,19 @@ def test_sort():
 
     for i in range(len(helper.items) - 1):
         assert helper.items[i].date < helper.items[i + 1].date
+
+
+def test_category():
+    helper.items.clear()
+    todos = [
+        ("Kabelsalat auflösen", "Hausarbeit"),
+        ("Wäsche machen", "Hausarbeit"),
+        ("Trash Core-Album aufnehmen", "Kunst"),
+        ("Französisch lernen", "Hausaufgaben"),
+    ]
+
+    for todo in todos:
+        helper.add(todo[0], category=todo[1])
+
+    for item in helper.items:
+        assert item.category in [t[1] for t in todos]
