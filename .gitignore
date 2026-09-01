@@ -1,2 +1,20 @@
-__pycache__
+# python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+
+# pytest
+.pytest_cache/
+.coverage
+htmlcov/
+
+# vscode
+.vscode/
+*.code-workspace
+
+# os
+.DS_Store
 *~
