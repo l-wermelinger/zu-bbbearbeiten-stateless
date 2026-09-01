@@ -17,6 +17,9 @@
         <form name="item" class="ui form" action="/add" method="post">
             <div class="field" style="margin-top: 10px;">
                 <div for="text" class="ui pointing below label">Was gibbbt es zu tun?</div>
+                <div class="field">
+                    <textarea type="text" name="description" id="description" rows="2" placeholder="Was genau?"></textarea>
+                </div>
                 <div class="ui action input">
                     <input autofocus name="text" type="text" name="text" placeholder="Fürs Modul lernen...">
                     <select id="category" name="category">
@@ -37,6 +40,7 @@
             <span class="ui black left label"><i class="calendar icon"></i>{{item.date.strftime("%d.%m.%Y")}}</span>
             <span class="ui black left label"><i class="folder open icon"></i>{{item.category}}</span>
             <span class="ui header" style="margin-left: 0.5em;">{{item.text}}</span>
+            <p>{{item.description}}</p>
             {% if item.isCompleted %}
             <a class="ui green left corner label" href="/update/{{loop.index0}}"><i
                     class="check square outline icon"></i></a>
