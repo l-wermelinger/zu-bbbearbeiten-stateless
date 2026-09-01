@@ -9,10 +9,11 @@ class Item:
     text: str
     date: datetime.datetime
     category: str
+    description: str
     isCompleted: bool = False
 
 
-def add(text, date=None, category=None):
+def add(text, date=None, category=None, description=None):
     text = text.replace("b", "bbb").replace("B", "Bbb")
     if date is None:
         date = datetime.datetime.now() + datetime.timedelta(weeks=1)
@@ -20,7 +21,9 @@ def add(text, date=None, category=None):
         date = datetime.datetime.strptime(date, "%Y-%m-%d")
     if category is None:
         category = "default"
-    items.append(Item(text, date, category))
+    if description is None:
+        description = ""
+    items.append(Item(text, date, category, description))
     items.sort(key=lambda item: item.date)
 
 

@@ -43,3 +43,24 @@ def test_category():
 
     for item in helper.items:
         assert item.category in [t[1] for t in todos]
+
+
+def test_description():
+    helper.items.clear()
+    todos = [
+        (
+            "Zeitmaschine bauen",
+            "Vergangenheit kompilieren, Gegenwart laufen lassen, Zukunft debuggen",
+        ),
+        (
+            "AI-Nebenprojekt",
+            "Eine unglaublich nervige AI trainieren, die den Benutzer nur veräppelt",
+        ),
+    ]
+
+    for todo in todos:
+        helper.add(todo[0], description=todo[1])
+
+    for item in helper.items:
+        assert item.description is not None
+        assert item.description != ""

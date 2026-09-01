@@ -15,7 +15,8 @@ def add():
     text = request.form.get("text")
     date = request.form.get("deadline")
     category = request.form.get("category")
-    helper.add(text, date, category=category)
+    description = request.form.get("description")
+    helper.add(text, date, category=category, description=description)
     return redirect(url_for("index"))
 
 
